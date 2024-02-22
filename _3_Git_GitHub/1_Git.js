@@ -63,11 +63,23 @@ URL Değiştirmek => git remote set-url origin2 yeniURL
 
 ---------------------------------------------------------------
 ## CHECKOUT/SWITCH ##
+Dikkat: checkout tyapmadan önce add yapmanız gerekmektedir.
 git log 
-git checkout hashCode
+git checkout hashCode(En az 7 karakter)
+git checkout master
 
 ---------------------------------------------------------------
 ## STASH ##
+Dikkat: stash tyapmadan önce add yapmanız gerekmektedir.
+git add .
+git stash
+git stash save "customiseStashName"
+git stash list
+git stash apply stash@{0}
+git stash drop stash@{0}
+git stash pop
+
+
 
 ---------------------------------------------------------------
 ## BRANCH ##
