@@ -82,7 +82,7 @@ git stash pop
 
 
 ---------------------------------------------------------------
-## BRANCH ##
+## BRANCH/ MERGE/REBASE ##
 git branch -M main
 git add .
 git commit -m "branch öncesi"
@@ -125,15 +125,8 @@ git merge backend
 git checkout -b frontend (branch oluşturup dallanma)
 
 ---------------------------------------------------------------
-## MERGE/REBASE ##
-
-
----------------------------------------------------------------
 ## PULL/FETCH ##
 git pull origin master
-
-## FETCH ##
-
 
 ---------------------------------------------------------------
 ## TAG ##
