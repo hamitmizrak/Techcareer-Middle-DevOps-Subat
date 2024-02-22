@@ -47,6 +47,7 @@ git commit -m "Data"
 # Add komutunu yazmadan direk commit üzerinden add yapalım.
 git commit -a -m "Data2"
 
+
 ---------------------------------------------------------------
 ## ALIAS ##
 git log 
@@ -80,15 +81,42 @@ git stash drop stash@{0}
 git stash pop
 
 
-
 ---------------------------------------------------------------
 ## BRANCH ##
+git branch -M main
+git add .
+git commit -m "branch öncesi"
+git push 
+
+git branch
+git branch -a
+
+git log44
+
+git brach backend (branch oluştur)
+git checkout backend  (branch dallan)
+git add .
+git commit -m "backend"
+git push origin backend (backend push)
+git branch -D backend (silme)
+
+git checkout master 
+git merge backend (backend'i master'a birleştirme)
+git merge backend --no-ff (backend'i master'a birleştirme)
+
+
+git checkout -b frontend (branch oluşturup dallanma)
 
 ---------------------------------------------------------------
 ## MERGE/REBASE ##
 
+
 ---------------------------------------------------------------
 ## PULL/FETCH ##
+git pull origin master
+
+## FETCH ##
+
 
 ---------------------------------------------------------------
 ## TAG ##
