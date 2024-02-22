@@ -8,5 +8,7 @@ nodejs
 vue
 react
 angular JS 
+
+Mobil
 react native 
 android
