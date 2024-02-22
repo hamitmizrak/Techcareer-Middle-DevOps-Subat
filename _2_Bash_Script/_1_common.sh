@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Shell çalıştırmak
+# ./_1_common.sh
+
 # User Variable
 UPDATED="Güncelleme"
 NOT_UPDATED="Güncellenmedi"
@@ -17,9 +20,9 @@ CHMOD="Dosya İzinleri Vermek"
 
 # Güncelleme 
 sleep 2
-echo -e "\n GUNCELLEME"
+echo -e "\n $UPDATED "
 read -p "Güncelleme İstiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
+if [[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]
 then
     echo -e "Güncelleme Başlandı... "  
     sudo apt-get update && sudo apt-get upgrade -y
@@ -32,7 +35,7 @@ fi
 sleep 2
 echo -e "\n DOSYA IZINLERI"
 read -p "Dosyalara izin vermek istiyor musunuz E/H " chmodUserResponse
-if [[ $chmodUserResponse == "E" || $chmodUserResponse == "e" ]]; 
+if [[ $chmodUserResponse == "E" || $chmodUserResponse == "e" ]]
 then
     echo -e "\n Dosya İzinleri Yetkilendirilmeleri Veriliyor"
     sleep 1
@@ -127,22 +130,36 @@ fi
 sleep 2
 echo -e "\n PORT"
 read -p "Port Aktif etmek ve izin Vermek istiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
+if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]
 then
-    echo -e "Güncelleme Başlandı... "  
-    sudo apt-get update && sudo apt-get upgrade -y
+    echo -e "Port İşlemlerine Başlandı... "  
+    sudo netstat -nlptu
+    sudo ufw allow 22
+    sudo ufw allow 80
+    sudo ufw allow 443
+    sudo ufw allow 1111
+    sudo ufw allow 2222
+    sudo ufw allow 3333
+    sudo ufw allow 4444
+    sudo ufw allow 8080
+    sudo ufw allow 8000
+    sudo ufw allow 9000
+    sudo ufw allow 3306
+    sudo ufw allow 5432
 else
-    echo -e "apt-get Update List Güncelleme Yapılmadı!!!\n "   
+    echo -e "Port Güncelleme Yapılmadı!!!\n "   
 fi
 
 # TEMİZLEME 
 sleep 2
-echo -e "\n PORT"
-read -p "Port Aktif etmek ve izin Vermek istiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
+echo -e "\n TEMİZLE"
+read -p "Cache yapmak istiyor musunuz ? E/H " updateUserResponse
+if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]
 then
-    echo -e "Güncelleme Başlandı... "  
-    sudo apt-get update && sudo apt-get upgrade -y
+    echo -e "\nTemizle Başlandı... "
+    sudo apt-get clean
+    sudo apt-get autoremove -y
+    
 else
-    echo -e "apt-get Update List Güncelleme Yapılmadı!!!\n "   
+    echo -e "Temizlik Yapılmadı!!!\n "   
 fi

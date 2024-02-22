@@ -46,19 +46,16 @@ fi
 # Yükleme
 sleep 2
 echo -e "\n### ${UPDATED} ###"
-read -p "VS Code'u Yükleme istiyor musunuz  E/H ? " installingResult
+read -p "Node JS Yükleme istiyor musunuz  E/H ? " installingResult
 if [[ $installingResult == "E" || $installingResult == "e"  ]]
 then
      echo -e "Yükleme Başlandı... "
-     sudo snap install code --classic
-     sleep 1
-     echo -e "Bağımlılıklar Yükleniyor"
-     sudo apt install –f 
-     sudo mkdir frontend
-     cd frontend
-     code .
+     sudo apt-get install -y nodejs
+      sleep 1
+     npm -v 
+     node -v
 else
-     echo -e "Yükleme Yapılmadı!!!\n "   
+     echo -e "Node JS Yüklemesi Yapılmadı!!!\n "   
 fi
 
 # Temizlik

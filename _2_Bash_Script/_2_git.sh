@@ -1,48 +1,61 @@
+
 #! /bin/bash
-echo "GİT"
+
+# Shell çalıştırmak
+# ./_1_common.sh
 
 # User Variable
 UPDATED="Güncelleme"
+NOT_UPDATED="Güncellenmedi"
 CLEANER="Temizleme"
 INSTALL="Yükleme"
+NOT_INSTALLED="Yüklenmedi"
 DELETED="Silme"
-WHICH="Nerede ?"
-VERSION=Version
-COMMONINFORMATION=" Genel Bilgiler"
+COMMON_INFORMATION="Genel Bilgiler"
+ERROR="Hata"
+WARNING="Uyarı"
+SUCCESS="Başarılı"
+FAILED="Başarısız"
+NOT_FOUND="Bulunamadı"
+CHMOD="Dosya İzinleri Vermek"
 
-# System Variable
-
-# Updated
+# Güncelleme 
 sleep 2
-echo -e "\n### ${UPDATED} ###"
-read -p "Güncelleme istiyor musunuz  E/H ? " updatedResult
-if [[ $updatedResult == "E" || $updatedResult == "e"  ]]
+echo -e "\n "
+read -p " $UPDATED İstiyor musunuz ? E/H " updateUserResponse
+if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
 then
     echo -e "Güncelleme Başlandı... "  
     sudo apt-get update && sudo apt-get upgrade -y
+    sudo apt install –f 
 else
-     echo -e "apt-get Update List Güncelleme Yapılmadı!!!\n "   
+    echo -e "apt-get Update List Güncelleme Yapılmadı!!!\n "   
 fi
 
-
-# Common
+# PORT 
 sleep 2
-echo -e "\n### ${COMMONINFORMATION} ###"
-read -p "Genel Bilgiler istiyor musunuz  E/H ? " commonResult
-if [[ $commonResult == "E" || $commonResult == "e"  ]]
+echo -e "\n PORT"
+read -p "Port Aktif etmek ve izin Vermek istiyor musunuz ? E/H " updateUserResponse
+if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
 then
-    echo -e "Genel Bilgiler Başlandı... "  
-    echo -e "Ben Kimim ... "  
-    sudo whoami
-    echo -e "IP ... " 
-    sudo ifconfig
-    echo -e "Portlar ... " 
+    echo -e "Port İşlemlerine Başlandı... "  
     sudo netstat -nlptu
-    echo -e "Ram ... " 
-    sudo free -m
+    sudo ufw allow 22
+    sudo ufw allow 80
+    sudo ufw allow 443
+    sudo ufw allow 1111
+    sudo ufw allow 2222
+    sudo ufw allow 3333
+    sudo ufw allow 4444
+    sudo ufw allow 8080
+    sudo ufw allow 8000
+    sudo ufw allow 9000
+    sudo ufw allow 3306
+    sudo ufw allow 5432
 else
-     echo -e "Genel Bilgiler Gösterilmediı!!!\n "    
+    echo -e "Port Güncelleme Yapılmadı!!!\n "   
 fi
+
 
 # Yükleme
 sleep 2
@@ -64,20 +77,16 @@ else
      echo -e "Yükleme Yapılmadı!!!\n "   
 fi
 
-# Temizlik
+# TEMİZLEME 
 sleep 2
-echo -e "\n######  Cache Temizleme  ######"
-read -p  "Cache Temizleme istiyor musunuz? E / H " cleanResult
-if [[ $cleanResult == "E"  ||  $cleanResult == "e" ]]
+echo -e "\n TEMİZLE"
+read -p "Cache yapmak istiyor musunuz ? E/H " updateUserResponse
+if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
 then
-	echo   -e "\n######"  $CLEANER "######"
-	echo -e "Temizlik Başlandı... "  
+    echo -e "\nTemizle Başlandı... "
     sudo apt-get clean
     sudo apt-get autoremove -y
-else 
-    echo -e "Temizlik Yapılmadı!!!\n "    
+    
+else
+    echo -e "Temizlik Yapılmadı!!!\n "   
 fi
-
-
-sleep 2
-echo -e "\n######  BİTTİ ######"
