@@ -112,7 +112,15 @@ git branch -D backend (silme)
 git checkout master 
 git merge backend (backend'i master'a birleştirme)
 git merge backend --no-ff (backend'i master'a birleştirme)
-
+cat >> frontend.txt 
+git add .
+git commit -m "backend data"
+git push -u origin backend
+git commit -a -m "backend data-2"
+git push 
+git switch master
+git checkout master 
+git merge backend
 
 git checkout -b frontend (branch oluşturup dallanma)
 
