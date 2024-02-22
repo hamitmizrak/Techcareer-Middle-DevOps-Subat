@@ -88,12 +88,12 @@ git add .
 git commit -m "branch öncesi"
 git push 
 
-git branch
-git branch -a
+git branch    (local branch)
+git branch -a (Remote+local branch)
 
 git log44
 
-git brach backend (branch oluştur)
+git branch backend (branch oluştur)
 git checkout backend  (branch dallan)
 git add .
 git commit -m "backend"
