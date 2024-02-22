@@ -63,6 +63,8 @@ URL Değiştirmek => git remote set-url origin2 yeniURL
 
 ---------------------------------------------------------------
 ## CHECKOUT/SWITCH ##
+git log 
+git checkout hashCode
 
 ---------------------------------------------------------------
 ## STASH ##
