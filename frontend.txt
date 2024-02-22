@@ -1,0 +1,14 @@
+html
+css3
+js
+jquery
+bootstrap5
+tailwind
+nodejs
+vue
+react
+angular JS 
+
+Mobil
+react native 
+android
