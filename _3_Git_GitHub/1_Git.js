@@ -32,3 +32,8 @@ git config --global core.editor "notepad++"
 -------------------------------------
 git --help
 
+git add . 
+git commit -m "Data"
+
+git commit -a -m "Data2"
+
