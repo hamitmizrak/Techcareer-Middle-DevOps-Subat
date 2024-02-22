@@ -49,7 +49,7 @@ then
     sudo chmod +x _7_apache_tomcat.sh
     sudo chmod +x _8_docker.sh
     sudo chmod +x _9_postgresql.sh
-    sudo chmod +x _10_SonarQube.sh
+    sudo chmod +x _10_sonarQube.sh
     sudo chmod +x _14_AllVersion.sh
     echo -e "\n Dosya İzinleri Verildi"
 else
@@ -130,7 +130,7 @@ fi
 sleep 2
 echo -e "\n PORT"
 read -p "Port Aktif etmek ve izin Vermek istiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]
+if [[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]
 then
     echo -e "Port İşlemlerine Başlandı... "  
     sudo netstat -nlptu
@@ -154,7 +154,7 @@ fi
 sleep 2
 echo -e "\n TEMİZLE"
 read -p "Cache yapmak istiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]
+if [[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]
 then
     echo -e "\nTemizle Başlandı... "
     sudo apt-get clean

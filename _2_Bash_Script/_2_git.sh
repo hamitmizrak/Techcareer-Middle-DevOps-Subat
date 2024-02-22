@@ -23,7 +23,7 @@ CHMOD="Dosya İzinleri Vermek"
 sleep 2
 echo -e "\n "
 read -p " $UPDATED İstiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
+if [[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
 then
     echo -e "Güncelleme Başlandı... "  
     sudo apt-get update && sudo apt-get upgrade -y
@@ -36,7 +36,7 @@ fi
 sleep 2
 echo -e "\n PORT"
 read -p "Port Aktif etmek ve izin Vermek istiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
+if [[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
 then
     echo -e "Port İşlemlerine Başlandı... "  
     sudo netstat -nlptu
@@ -81,7 +81,7 @@ fi
 sleep 2
 echo -e "\n TEMİZLE"
 read -p "Cache yapmak istiyor musunuz ? E/H " updateUserResponse
-if[[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
+if [[ $updateUserResponse == "E" || $updateUserResponse == "e" ]]; 
 then
     echo -e "\nTemizle Başlandı... "
     sudo apt-get clean
