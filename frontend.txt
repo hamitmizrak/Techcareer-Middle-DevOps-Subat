@@ -7,4 +7,6 @@ tailwind
 nodejs
 vue
 react
-angular
+angular JS 
+react native 
+android
