@@ -127,6 +127,18 @@ git checkout -b frontend (branch oluşturup dallanma)
 ---------------------------------------------------------------
 ## PULL/FETCH ##
 git pull origin master
+git pull origin backend
+git pull origin frontend
+
+git remote 
+git remote -v 
+
+git fetch origin 
+git branch -a
+
+git checkout remotes/origin/master
+git checkout master
+git merge origin/master
 
 ---------------------------------------------------------------
 ## TAG ##
@@ -136,3 +148,6 @@ git pull origin master
 
 ---------------------------------------------------------------
 ## SSH-KEYGEN ##
+
+---------------------------------------------------------------
+## GİTHUB ##
