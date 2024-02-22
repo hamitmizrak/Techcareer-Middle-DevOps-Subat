@@ -98,6 +98,15 @@ git checkout backend  (branch dallan)
 git add .
 git commit -m "backend"
 git push origin backend (backend push)
+cat >> backend.txt 
+git add .
+git commit -m "backend data"
+git push -u origin backend
+git commit -a -m "backend data-2"
+git push 
+git switch master
+git checkout master 
+git merge backend
 git branch -D backend (silme)
 
 git checkout master 
