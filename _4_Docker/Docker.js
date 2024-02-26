@@ -1,3 +1,5 @@
+
+========= 
 Bare-Metal (Windows 10) 
 Virtual Machine ()
 Container
@@ -28,3 +30,20 @@ Docker Hub : Image Al/Ver
 
 Docker Platform 
 Windows, Linux, MAcOS
+
+------------------------------
+docker version 
+docker -v
+docker --version 
+
+docker info
+
+docker --help
+docker image --help
+
+docker -v
+mvn -v 
+java --version 
+node -v
+
+docker run hello-world
