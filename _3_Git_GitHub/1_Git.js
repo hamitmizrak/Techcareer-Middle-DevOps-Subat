@@ -135,13 +135,20 @@ git remote -v
 
 git fetch origin 
 git branch -a
-
 git checkout remotes/origin/master
 git checkout master
 git merge origin/master
 
 ---------------------------------------------------------------
 ## TAG ##
+git tag -a v1.0.0 -m "version 1.0"
+git tag
+git show v1.0.0
+git push origin v1.0.0
+git push origin --tags
+git tag -d v1.0.0
+git push origin :refs/tags/v1.0.0
+
 
 ---------------------------------------------------------------
 ## CONFLICT ##
