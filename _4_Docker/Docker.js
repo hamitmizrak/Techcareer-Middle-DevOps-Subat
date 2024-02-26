@@ -57,27 +57,43 @@ docker pull   nginx
 docker pull   nginx:latest
 docker pull   nginx:1.15
 
+
+docker pull ubuntu
+docker pull alpine
+docker pull centos
+docker pull mysql
+docker pull httpd
+
+------------------------------------
+-- Container 
 docker container run --publish   1111:80 nginx (publish: reverse proxy port)
 docker container run --publish   2222:80 --detach nginx (detach: arka planda çalış lütfen)
 docker container run -p   3333:80 -d nginx
 docker container run -p 4444:80 -d --name techcareer nginx (name: container adını yazdırmak)
 
+------------------------------------
+-- List--
 docker container ls 
 docker container ls -a
 docker container ps 
 docker ps 
 
-
+------------------------------------
+-- Start/Stop --
 docker container stop containerID
 docker container stop containerNAME
 docker container stop 0023a98fc505
 docker container start 0023a98fc505
 
-
+------------------------------------
+-- Delete --
 docker container rm  0023a98fc505
 docker container rm -f 266f629d9bc0 (f: stop yapmadan sil)
 docker container rm -f 0023a98fc505 e5fd3be3f3d7
+docker container prune (prune: Çalışmayan bütün containerleri sil)
 
+------------------------------------
+-- Monitoring --
 docker ps
 docker container logs container_ID
 docker container logs container_NAME
@@ -86,10 +102,22 @@ docker container logs --details techcareer
 docker container logs --tail 5 techcareer (son 5 log'u göster)
 docker container logs -f  techcareer (f: follow)
 
-docker container prune (prune: Çalışmayan bütün containerleri sil)
+------------------------------------
+--LOGS TIS 
+t: top: çalışan processler 
+i: inspect detaylı nbilgi 
+s:stats: performan bilgi(kaynak tüketimi)
+
+docker container ls 
+docker container ps 
+docker container top techcareer 
+docker container inspect techcareer 
+docker container stats techcareer 
+
+------------------------------------
+-- Terminal --
 
 
- 
 
 
 
@@ -101,8 +129,7 @@ docker container prune (prune: Çalışmayan bütün containerleri sil)
 
 
 
-docker pull ubuntu
-docker pull alpine
-docker pull centos
-docker pull mysql
-docker pull httpd
+
+
+
+
