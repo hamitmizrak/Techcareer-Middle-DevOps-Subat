@@ -65,11 +65,19 @@ docker pull mysql
 docker pull httpd
 
 ------------------------------------
--- Container 
+-- Container --
 docker container run --publish   1111:80 nginx (publish: reverse proxy port)
 docker container run --publish   2222:80 --detach nginx (detach: arka planda çalış lütfen)
 docker container run -p   3333:80 -d nginx
 docker container run -p 4444:80 -d --name techcareer nginx (name: container adını yazdırmak)
+
+------------------------------------
+-- Image --
+docker image --help 
+docker image ls
+docker image prune (prune: kullanılmayan bütün image'leri sil)
+
+
 
 ------------------------------------
 -- List--
@@ -103,7 +111,7 @@ docker container logs --tail 5 techcareer (son 5 log'u göster)
 docker container logs -f  techcareer (f: follow)
 
 ------------------------------------
---LOGS TIS 
+-- LOGS TIS --
 t: top: çalışan processler 
 i: inspect detaylı nbilgi 
 s:stats: performan bilgi(kaynak tüketimi)
@@ -115,14 +123,69 @@ docker container inspect techcareer
 docker container stats techcareer 
 
 ------------------------------------
+docker search ubuntu 
+docker pull ubuntu
+
+alpine => sh 
+ubuntu => bash 
+window => powershell 
+
 -- Terminal --
+## Yeni bir container oluştur ve ona bağlan
+docker container run -it -p 1111:80 --name techcareer ubuntu bash
+winpty docker container run -it -p 1111:80 --name techcareer ubuntu bash
+i: interactive 
+t: terminal
+
+docker ps 
+## Çalışan bir container üzerinden terminale bağlanacağım. 
+docker container exec -it containerID bash
 
 
+## Kapatılmış container üzerinden terminale bağlanacağım. 
+docker container start -ai containerID
+
+Examples
+docker search nginx 
+docker pull nginx 
+docker image ls 
+
+--rm: container stop yaptığınızda otomatik silinir.
+docker container run  -p 7777:80 nginx
+docker container run -d -p 7777:80 nginx
+docker container run -d -p 7777:80 --name web2 nginx
+docker container run -p 7777:80 --name web2 --rm nginx
+docker container run -d -p 7777:80 --name web2 --rm nginx
+
+docker container exec -it web2 bash
+cat > usr/share/nginx/html/index.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Nasılsınız Lorem, ipsum.</p>
+</body>
+</html>
 
 
+------------------------------------
+-- Mount --
 
+------------------------------------
+-- Volume --
 
+------------------------------------
+-- Network --
 
+------------------------------------
+-- Image Oluşturmak --
+
+------------------------------------
+-- Docker Swarm (orchestraction) --
 
 
 
