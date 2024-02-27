@@ -16,3 +16,12 @@ npm init -y
 - Git Branch
 
 
+---
+### Docker 
+> docker build -t imageAdi.
+> docker container run -d --rm -p 4444:4444 --name spring_react imageAdi
+>
+> docker compose up
+> docker compose up -d 
+> docker compose down
+

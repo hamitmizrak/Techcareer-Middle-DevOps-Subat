@@ -235,15 +235,17 @@ index.html
 docker container exec -it nginx_volume bash
 sudo docker container run  -d --rm -p 3333:80 --name volume_nginx -v nginx_volume:/usr/share/nginx/html nginx
 
+------------------------------------
+-- Image Oluşturmak --
 
 ------------------------------------
 -- Network --
 
 ------------------------------------
--- Image Oluşturmak --
-
-------------------------------------
 -- Docker Swarm (orchestraction) --
+
+
+
 
 
 
