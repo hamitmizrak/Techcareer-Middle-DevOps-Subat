@@ -237,6 +237,23 @@ sudo docker container run  -d --rm -p 3333:80 --name volume_nginx -v nginx_volum
 
 ------------------------------------
 -- Image Oluşturmak --
+docker login
+
+docker image --help
+docker image ls 
+docker image tag --help 
+
+DockerHub Repository Name: javahamitmizrak/spring_react_blog
+imageName: Oluşturduğumuz DockerFile veya docker-compose.yml'da veya daha önceden pull yaptığımız image adları.
+
+docker image tag imageName javahamitmizrak/spring_react_blog
+docker image tag my_spring_react:latest javahamitmizrak/spring_react_blog
+
+docker push javahamitmizrak/spring_react_blog
+docker image ls 
+docker image rm imageName
+docker pull javahamitmizrak/spring_react_blog
+docker logout
 
 ------------------------------------
 -- Network --
