@@ -244,7 +244,7 @@ $ cat >> index.html
 </html> 
 $ exit 
 
------------------------
+---------------------------------------------------------
 docker search mysql 
 docker pull mysql 
 docker ps 
@@ -308,11 +308,51 @@ docker logout
 
 ------------------------------------
 -- Docker Swarm (orchestraction) --
+K8S - Docker Swarm (Birden fazla  container yönetiminde)
+
+Docker Swarm (Docker Engine içerisinde )
+docker info 
+Eğer Swarm inacative görünmüyorsa =>   
+docker swarm leave --force
+docker swarm init
+
+Manager - Worker 
+docker swarm --help
+
+docker swarm init (active et)
+docker swarm leave (Swarm Kapat)
+docker swarm update (Swarm Güncellemek)
+
+docker swarm node ls 
+
+------------------------------------
+-- Service --
+docker service --help  (service: çalışan container kapandığında otomatik olarak açsın ve o container sürekli çalışsın)
+docker service ls 
+docker service ps ID 
+docker service rm ID 
+docker container rm -f containerID
+
+Manager Node Raft Consensus Algoritması
+N-1/2
+
+
+------------------------------------
+-- Volume --
+
+
+------------------------------------
+-- Swarm --
 
 
 ------------------------------------
 -- Network --
 
+------------------------------------
+------------------------------------
+------------------------------------
+SonarQube
+Grafana / Prometheus
 
 
 
