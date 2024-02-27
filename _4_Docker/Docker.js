@@ -174,9 +174,67 @@ cat > usr/share/nginx/html/index.html
 
 ------------------------------------
 -- Mount --
+Verilerimizin container dışında güvenl, bir limanda tutmak istiyorsak,  persist data kullanmak zorundayız
+1- Volume (Production)  ***(Contaniner dışında özel bir yerde saklansın)
+2- Bind Mound (Test) :Host sistemi üzerinde container içinde saklanıyor.
+
+Database (Veri tabanı)
+Log 
+xml 
+json 
+
+volume     : -v  
+bind mound : -v 
+
+------------------------------------
+-- Bind Mound --
+docker search nginx 
+docker pull nginx 
+
+index.html
+----------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Nasılsınız Ben bir Bind Mound Datasıyım.</p>
+</body>
+</html> 
+
+
+docker container run -d -p 6666:80 -v TaşınmasınıIstediğimDosyaYer:OrijinalDosyaYeri nginx
+sudo docker container run  -d --rm -p 2222:80 --name bind_nginx -v /home/hamit/Desktop/websitem:/usr/share/nginx/html nginx
 
 ------------------------------------
 -- Volume --
+docker volume --help
+docker volume create 
+docker volume inspect 
+docker volume ls 
+docker volume prune 
+docker volume rm 
+
+index.html
+----------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Nasılsınız Ben Bir Volume Datasıyım.</p>
+</body>
+</html> 
+
+docker container exec -it nginx_volume bash
+sudo docker container run  -d --rm -p 3333:80 --name volume_nginx -v nginx_volume:/usr/share/nginx/html nginx
+
 
 ------------------------------------
 -- Network --
