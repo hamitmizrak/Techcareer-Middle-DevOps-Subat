@@ -211,15 +211,26 @@ sudo docker container run  -d --rm -p 2222:80 --name bind_nginx -v /home/hamit/D
 
 ------------------------------------
 -- Volume --
-docker volume --help
-docker volume create 
-docker volume inspect 
-docker volume ls 
-docker volume prune 
-docker volume rm 
+$ docker volume --help
+$ docker volume create volumeName
+$ docker volume ls 
+$ docker volume inspect volumeName
+$ docker volume prune 
+$ docker volume rm 
 
-index.html
-----------
+Mountpoint : Volume fiziksel olarak bulunduğu yer demektir.
+"Mountpoint": "/var/lib/docker/volumes/volumeName/_data",
+
+
+$ mintty docker container run -it -v volumeName:/webpages ubuntu sh
+$ mintty docker container run -it -v volumeName:/webpages alpine sh
+$ docker volume ls
+$ docker volume inspect volumeName
+
+$ cd /webpages 
+$ cat >> index.html
+-----------------------
+### index.html ###
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -231,9 +242,49 @@ index.html
     <p>Nasılsınız Ben Bir Volume Datasıyım.</p>
 </body>
 </html> 
+$ exit 
 
-docker container exec -it nginx_volume bash
-sudo docker container run  -d --rm -p 3333:80 --name volume_nginx -v nginx_volume:/usr/share/nginx/html nginx
+-----------------------
+docker search mysql 
+docker pull mysql 
+docker ps 
+docker image ls 
+netstat -nlptu
+
+docker container run -p 3306:3306 --name my_special_mysql -e MYSQL_ROOT_PASSWORD=root mysql
+
+docker container ls 
+docker container inspect my_special_mysql
+# Destination Volumes: "/var/lib/mysql"
+
+docker container exec -it my_special_mysql bash 
+mysql -u root -p 
+password:root
+
+CREATE SCHEMA `volume` DEFAULT CHARACTER SET utf8 ;
+use volume;
+CREATE TABLE `volume`.`blog` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(250) NULL,
+  `content` VARCHAR(250) NULL,
+  `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
+
+  INSERT INTO `volume`.`blog` (`title`, `content`) VALUES ('title-1', 'content-1');
+  INSERT INTO `volume`.`blog` (`title`, `content`) VALUES ('title-2', 'content-2');
+  SELECT * FROM volume.blog;
+
+-- MYSQL VOLUME DEVAM
+docker container run  --name mysqlhamitmizrak77 -e MYSQL_ROOT_PASSWORD=root  -p 3306:3306 -v mysql-db:/var/lib/mysql mysql
+isterseniz detach yapabilirsiniz
+docker container run -d --name mysqlhamitmizrak77 -e MYSQL_ROOT_PASSWORD=root  -p 3307:3306 -v mysql-db:/var/lib/mysql mysql
+
+docker container exec -it mysqlhamitmizrak77 bash 
+mysql -u root -p 
+password:root
+use volume;
+SELECT * FROM volume.blog;
+
 
 ------------------------------------
 -- Image Oluşturmak --
@@ -256,10 +307,13 @@ docker pull javahamitmizrak/spring_react_blog
 docker logout
 
 ------------------------------------
--- Network --
+-- Docker Swarm (orchestraction) --
+
 
 ------------------------------------
--- Docker Swarm (orchestraction) --
+-- Network --
+
+
 
 
 
