@@ -1,0 +1,51 @@
+# docker-compose --version
+# docker-compose up
+# docker-compose up -d
+# docker-compose -f docker-compose-mysql.yml up
+# docker-compose -f docker-compose-postgresql.yml up
+# docker-compose down
+# docker-compose restart
+# docker-compose ps
+
+
+# restart: parametresi farklı restart işlemlerinde kullanılır. Bu parametre sayesinde
+# servisler veya konteynarlar durduğunda ,sistem çöktüğünde serverin nasıl davrancağını belirtir.
+# restart: no (default) ( yani docker compose otomatik olarak restart uygulasın
+# restart: unless-stopped (  konteynar durduğunda otomatik olarak yeniden başlamasın
+# restart: always (konteynar her zaman otomatik başlatsın)
+# restart: on-failure  (konteynar çökmesi durumunda otomatik olarak başlat)
+
+services:
+  dailyapp:
+    container_name: blog_react
+    image: blog_react
+    restart: always
+    build: ./
+    ports:
+      - "4444:4444"
+    environment:
+      - spring.datasource.url= jdbc:mysql://mysqldb:3306/blog?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+    networks:
+      - springmysql
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8.0
+    ports:
+      - 3307:3306
+    expose:
+      - "3306"
+    networks:
+      - springmysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=blog
+      - MYSQL_USER=hamit
+      - MYSQL_PASSWORD=root
+    restart: unless-stopped
+
+networks:
+  springmysql:
+    name: springmysql
+    driver: bridge
