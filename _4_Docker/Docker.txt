@@ -245,46 +245,56 @@ $ cat >> index.html
 $ exit 
 
 ---------------------------------------------------------
-docker search mysql 
-docker pull mysql 
+docker ps 
+docker ps -a
+docker container rm -f dockerID
+
+docker search mysql
+docker pull mysql/mysql-server:latest 
 docker ps 
 docker image ls 
 netstat -nlptu
 
-docker container run -p 3306:3306 --name my_special_mysql -e MYSQL_ROOT_PASSWORD=root mysql
+docker volume ls 
+docker volume rm volumeName1 volumeName2 volumeName3
+docker volume --help
+docker create -v /var/lib/mysql --name mysqldatabase mysql/mysql-server:latest
+docker volume ls
+docker ps  -a 
+Mysql Container ID:8f30d2f90670  
+Mysql Container NAME: mysqldatabase
 
-docker container ls 
-docker container inspect my_special_mysql
-# Destination Volumes: "/var/lib/mysql"
+docker ps -a 
+docker container run -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=root --volumes-from mysqldatabase --name=mysqldb mysql/mysql-server:latest
+winpty docker container exec -it mysqldb bash
+mysql -uroot -p
+root
+SHOW DATABASES;
 
-docker container exec -it my_special_mysql bash 
-mysql -u root -p 
-password:root
 
-CREATE SCHEMA `volume` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA `spa` DEFAULT CHARACTER SET utf8 ;
 use volume;
-CREATE TABLE `volume`.`blog` (
+CREATE TABLE `spa`.`blog` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(250) NULL,
   `content` VARCHAR(250) NULL,
   `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
 
-  INSERT INTO `volume`.`blog` (`title`, `content`) VALUES ('title-1', 'content-1');
-  INSERT INTO `volume`.`blog` (`title`, `content`) VALUES ('title-2', 'content-2');
-  SELECT * FROM volume.blog;
+  INSERT INTO `spa`.`blog` (`title`, `content`) VALUES ('title-1', 'content-1');
+  INSERT INTO `spa`.`blog` (`title`, `content`) VALUES ('title-2', 'content-2');
+  SELECT * FROM spa.blog;
+  SHOW DATABASES;
 
--- MYSQL VOLUME DEVAM
-docker container run  --name mysqlhamitmizrak77 -e MYSQL_ROOT_PASSWORD=root  -p 3306:3306 -v mysql-db:/var/lib/mysql mysql
-isterseniz detach yapabilirsiniz
-docker container run -d --name mysqlhamitmizrak77 -e MYSQL_ROOT_PASSWORD=root  -p 3307:3306 -v mysql-db:/var/lib/mysql mysql
+exit (Mysql)
+exit (Bash terminal)
 
-docker container exec -it mysqlhamitmizrak77 bash 
-mysql -u root -p 
-password:root
-use volume;
-SELECT * FROM volume.blog;
-
+docker container rm -f mysqldb
+docker container run -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=root --volumes-from mysqldatabase --name=mysqldatabasenew mysql/mysql-server:latest
+winpty docker container exec -it mysqldatabasenew bash
+mysql -uroot -p
+root
+SHOW DATABASES;
 
 ------------------------------------
 -- Image Oluşturmak --
@@ -339,6 +349,7 @@ N-1/2
 
 ------------------------------------
 -- Volume --
+Docker - Volume - Mysql
 
 
 ------------------------------------
