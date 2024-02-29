@@ -252,6 +252,7 @@ docker container rm -f dockerID
 docker search mysql
 docker pull mysql/mysql-server:latest 
 docker ps 
+docker ps -a
 docker image ls 
 netstat -nlptu
 
@@ -270,7 +271,6 @@ winpty docker container exec -it mysqldb bash
 mysql -uroot -p
 root
 SHOW DATABASES;
-
 
 CREATE SCHEMA `spa` DEFAULT CHARACTER SET utf8 ;
 use volume;
