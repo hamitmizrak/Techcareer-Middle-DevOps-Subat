@@ -244,7 +244,11 @@ $ cat >> index.html
 </html> 
 $ exit 
 
----------------------------------------------------------
+
+------------------------------------
+-- Volume --
+Docker - Volume - Mysql
+
 docker ps 
 docker ps -a
 docker container rm -f dockerID
@@ -346,10 +350,6 @@ docker container rm -f containerID
 Manager Node Raft Consensus Algoritması
 N-1/2
 
-
-------------------------------------
--- Volume --
-Docker - Volume - Mysql
 
 
 ------------------------------------
