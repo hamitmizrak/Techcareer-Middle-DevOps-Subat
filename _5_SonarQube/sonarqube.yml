@@ -1,0 +1,17 @@
+# docker-compose
+# Network
+# JDK-17
+# SonarQube 
+# Postgresql
+
+
+
+
+
+
+
+
+
+#docker-compose up
+#docker-compose up -d 
+#docker-compose -f sonarqube.yml up -d
