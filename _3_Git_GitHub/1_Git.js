@@ -125,6 +125,9 @@ git merge backend
 git checkout -b frontend (branch oluşturup dallanma)
 
 ---------------------------------------------------------------
+## REBASE ##
+
+---------------------------------------------------------------
 ## PULL/FETCH ##
 git pull origin master
 git pull origin backend
