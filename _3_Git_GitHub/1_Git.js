@@ -156,6 +156,16 @@ Tamamdır.
 ---------------------------------------------------------------
 ## SSH-KEYGEN ##
 ssh-keygen -t rsa -b 4096 -C "hamitmizrak@gmail.com"
+eval `ssh-agent -s`  ==>  Agent pid 681
+ssh -T git@github.com ==> SSH bağlantısı yapıldı mı ?
+
+Windows => C:\Users\90553\.ssh
+Linux   => cd ~/.ssh/id_rsa.pub
+Public Şifre verdi
+
+GitHub Adresine Yapıştır
+https://github.com/settings/keys
+
 
 ---------------------------------------------------------------
 ## CONFLICT ##
