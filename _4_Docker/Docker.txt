@@ -353,8 +353,51 @@ N-1/2
 
 
 ------------------------------------
--- Swarm --
+-- Swarm  --
+Orchestration
+https://labs.play-with-docker.com/
 
+docker info
+docker swarm init (active et)
+docker swarm leave (Swarm Kapat)
+docker swarm update (Swarm Güncellemek)
+docker swarm node ls 
+
+Ctrl+ Insert tuşu (Copy)
+Shift+ Insert tuşu (Pase)
+
+1.ADIM 
+-------------
+5 tane instance oluştur. 
+ifconfig ile ip adresini gördüm
+
+Herhangi bir node       => Aktif Manager Seç => ( docker swarm init --advertise-addr 192.168.0.13 )
+Aktif Manager node iken => Pasif Manager Seç => ( docker swarm join-token manager ) docker swarm join --token SWMTKN-1-4pihi7pb25k8szb0q9wggj96iz48wfoxxbkw03h21gg5dho56r-exe7al8bhf4ep977xbqjtqd13 192.168.0.13:2377
+Aktif Manager node iken => Workerlar Seç     => ( docker swarm join-token worker )  docker swarm join --token SWMTKN-1-4pihi7pb25k8szb0q9wggj96iz48wfoxxbkw03h21gg5dho56r-doff0ak6q3zgqsan2apjhp78k 192.168.0.13:2377
+
+
+2.ADIM 
+-------------
+Pasif Manager için ID: 192.168.12 IP git => docker swarm join --token SWMTKN-1-4pihi7pb25k8szb0q9wggj96iz48wfoxxbkw03h21gg5dho56r-exe7al8bhf4ep977xbqjtqd13 192.168.0.13:2377
+Pasif Manager için ID: 192.168.11 IP git => docker swarm join --token SWMTKN-1-4pihi7pb25k8szb0q9wggj96iz48wfoxxbkw03h21gg5dho56r-exe7al8bhf4ep977xbqjtqd13 192.168.0.13:2377
+
+Worker  için ID: 192.168.10 IP git => docker swarm join --token SWMTKN-1-4pihi7pb25k8szb0q9wggj96iz48wfoxxbkw03h21gg5dho56r-doff0ak6q3zgqsan2apjhp78k 192.168.0.13:2377
+Worker  için ID: 192.168.9 IP git => docker swarm join --token SWMTKN-1-4pihi7pb25k8szb0q9wggj96iz48wfoxxbkw03h21gg5dho56r-doff0ak6q3zgqsan2apjhp78k 192.168.0.13:2377
+
+
+3.ADIM 
+-------------
+docker node ls (Aktif veya Pasif managerde bu komutu sadece çalıştırabilirsin)
+docker service create --name web_server -p 7777:80 --replicas=9 nginx (aktif veya pasif managerde seçmelisiniz)
+
+docker service ls 
+docker service ps web_server
+
+
+docker ps 
+docker container rm -f containerID
+docker node ls
+docker service ps web_server
 
 ------------------------------------
 -- Network --
