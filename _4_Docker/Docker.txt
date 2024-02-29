@@ -401,6 +401,64 @@ docker service ps web_server
 
 ------------------------------------
 -- Network --
+Container normalde portla ile haberleşiyor. 
+Bilgisayarda;
+
+Port 
+2^16= 65536 port
+0 <= PORT <= 1023 (Well-Know Port)
+0   => 
+20  => FTP (File Transfer Protocol)
+22  => SSH
+23  => Telnet 
+80  => Http Reverse Proxy (nginx)
+80  => Http Reverse Proxy (docker)
+443 => Https SSL
+
+
+1024 <= PORT <= 49151 (Registed Port)
+3306  => Mysql
+5432  => Postgresql
+6379  => Redis
+27017 => Mongo
+3000  => Node js + React JS
+
+
+49152<= PORT <= 65535 ( Dynamics Port)
+sudo ufw status (inactive)
+sudo ufw enable
+sudo ufw allow 22
+sudo -nlptu
+sudo netstat -nlptu
+
+Ancak portlara her zaman güvenemeyiz. örneğin: XYZ kişisi kullandığımız bir portu kill yaptı.
+
+Network port ile haberleşmeye yerine DNS üzerindern haberleşmesini sağlıyor.
+
+Network Driver 
+Bridge : Default Driverdir.
+Host   : Container izolasyonu olmadığı durumlarda kullanılan network. 
+None   : Container ağ bağlantısını olmasını istemiyoruz.
+macvlan: mac adres üzerinden haberleşme 
+
+
+NORMAL PORT HABERLEŞME 
+docker container run --name port_nginx -d -p 9999:80 nginx 
+
+docker network --help 
+docker network ls 
+docker network rm NETWORKID 
+docker network inspect bridge 
+
+docker inspect hamitmizrak_network
+docker network create hamitmizrak_network
+docker inspect hamitmizrak_network
+docker container run --name dns_nginx -d --network hamitmizrak_network nginx
+docker container exec -it  dns_nginx bash 
+apt-get update 
+apt-get install curl 
+curl amazon.com
+
 
 
 ------------------------------------
