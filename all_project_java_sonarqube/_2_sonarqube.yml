@@ -48,5 +48,5 @@ services:
 # JVM 
 # Maven 
 # SonarQube (Linux SonarQube)
-# Scanner (Linux Scanner)
+# Scanner  (Linux Scanner)
 # Postgres (Linux Postgres)
