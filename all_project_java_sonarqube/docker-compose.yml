@@ -1,0 +1,8 @@
+services:
+  backend_web:
+    container_name: my_spring_react
+    image: my_spring_react
+    restart: on-failure
+    build: ./ 
+    ports:
+      - "1111:1111"
