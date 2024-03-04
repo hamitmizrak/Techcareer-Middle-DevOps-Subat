@@ -40,4 +40,9 @@ mvn clean verify sonar:sonar \
   -Dsonar.login=sqp_507e683324d96ef62259c2535dbda27496c4a98e
 
 # 2.YOL (sonarQube Scanner) Java root kısmında bunu terminalde çalıştırın
-Windows Path => Path ekle => C:\sonarqube\sonar-scanner-cli-5.0.1.3006-windows\sonar-scanner-5.0.1.3006-windows\bin
+> Windows Path => Path ekle => C:\sonarqube\sonar-scanner-cli-5.0.1.3006-windows\sonar-scanner-5.0.1.3006-windows\bin
+> sonar-project.properties (Kök dizine eklenir)
+> https://scm.thm.de/sonar/documentation/analysis/scan/sonarscanner/
+> sonar-scanner (sonar-project.properties) olduğu yerde çalıştır.
+
+
