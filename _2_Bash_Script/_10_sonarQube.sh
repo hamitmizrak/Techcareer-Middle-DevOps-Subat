@@ -10,8 +10,6 @@ sleep 2
 echo -e "Firewall Port: 9000 yapmalısın"
 
 
-
-
 # User Variable
 UPDATED="Güncelleme"
 CLEANER="Temizleme"
