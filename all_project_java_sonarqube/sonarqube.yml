@@ -9,7 +9,7 @@ services:
     ports:
       - "1111:1111"
 
-  #bfrontend_web:
+  #frontend_web:
 
   sonarqube:
     container_name: sonarqube
